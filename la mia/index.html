@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>IoT Mesh</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site Description Here">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/font-roboto.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
+
+        <style type="text/css">
+
+            .blur {
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0, 0.5); /* Black w/opacity/see-through */
+                color: white;
+            }
+        </style>
+
+        <style>
+            .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            }
+            
+            .slider:hover {opacity: 1;}
+            
+            .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            }
+            
+            .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+            }
+            #redSlider::-webkit-slider-thumb {background: red;}
+            #redSlider::-moz-range-thumb {background: red;}
+            #greenSlider::-webkit-slider-thumb {background: green;}
+            #greenSlider::-moz-range-thumb {background: green;}
+            #blueSlider::-webkit-slider-thumb {background: blue;}
+            #blueSlider::-moz-range-thumb {background: blue;}
+        </style>
+
+        <style>
+            #tree {
+                width: 100%;
+                height: 100%;
+            }
+
+            [node-id] rect {
+            fill: #147761; 
+            //538277
+            }
+            [node-id='1'] rect {
+            fill: #1D4479; 
+            //596B84
+            }
+            .field {
+            font-family: Impact;
+            text-transform: uppercase;
+            text-align: center;
+            text-size-adjust: 20px;
+            fill: #1D1D1D;
+            }
+            [link-id] path {
+            stroke: rgb(255, 255, 255);
+            }
+
+        </style>
+
+    </head>
+    <body class=" ">
+        <a id="start"></a>
+        <div class="main-container">
+            <section class="page-navigator">
+                <ul>
+                    <li>
+                        <a href="#home" class="inner-link" data-title="Home"></a>
+                    </li>
+                    <li>
+                        <a href="#aboutIt" class="inner-link" data-title="About it"></a>
+                    </li>
+                    <li>
+                        <a href="#meshTopology" class="inner-link" data-title="Mesh topology"></a>
+                    </li>
+                    <li>
+                        <a href="#nodesList" class="inner-link" data-title="Nodes list"></a>
+                    </li>
+                </ul>
+            </section>
+
+
+
+            <section id="home" class="imagebg parallax height-100 text-center" data-overlay="1">
+                <div class="background-image-holder">
+                    <img alt="background" src="img/mesh/slide-3.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-9">
+                            <img alt="Image" src="img/mesh/brain_new.PNG" />
+                            <p class="lead" style="font-size: 30px;">
+                                The most powerful mesh network
+                                <br class="hidden-xs hidden-sm" /> for IoT.
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+            <section class="height-100 imagebg parallax" data-overlay="3" id="aboutIt">
+                <div class="background-image-holder">
+                    <img alt="background" src="img/mesh/background_1.jpeg" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6 feature feature-3 text-center" style="color: white;">
+                            <div class="container pos-vertical-top typed-headline text-center"> 
+                                <span class="h2 inline-block">Una nueva </span>
+                                <span class="h2 inline-block typed-text typed-text--cursor color--primary" data-typed-strings="Perspectiva, Topología"></span>
+                                <hr class="short"/>
+                            </div>
+                            <div style="font-size: 1.1pc;">
+                                <p>
+                                    La topología de red se define como el mapa físico o lógico de una red para intercambiar datos, en otras palabras, es la forma en que está diseñada la red, sea en el plano físico o lógico.
+                                </p>
+                                <p>
+                                    Una Mesh Network (Red de malla) o Meshnet es una topología de red local en la que los nodos de la estructura se conectan de forma directa, dinámica y no jerárquica a tantos otros nodos como sea posible y cooperan entre si para encaminar eficazmente los datos desde y hacia los clientes. Esta falta de dependencia de un nodo permite que cada nodo participe en la transmisión de la información.
+                                </p>
+                                <p>
+                                    Las redes Mesh se autoorganizan y autoconfiguran dinámicamente, lo que puede reducir los gastos de instalación. La capacidad de autoconfiguración permite una distribución dinámica de las cargas de trabajo, en particular en el caso de que unos pocos nodos fallen. Esto a su vez contribuye a la tolerancia a las fallas y a la reducción de los costos de mantenimiento.
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div style="margin-left: 20px;">
+                                <a href="img/mesh/white-NetworkTopologies.jpeg" data-lightbox="true">
+                                    <img alt="image" src="img/mesh/white-NetworkTopologies.jpeg" class="border--round">
+                                </a>
+                                <h5 style="font-size: medium;">Topologías de red</h5>
+                                <p style="font-size: 1.2pc;" class="text-center">
+                                    Una red de malla es capaz de redirigir el trafico por la red siempre de la forma más optima para disponer de la mejor señal posible, calculan a que nodo es mejor conectarse en cada momento según el estado de otros nodos, los dispositivos conectados, la distancia a cada uno de los nodos, potencia de la señal y otros muchos factores, de forma completamente transparente al usuario, el cual no tiene que preocuparse de a que nodo está conectado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section id="meshTopology" class="switchable parallax imagebg height-100">
+                <div class="background-image-holder">
+                    <img alt="background" src="img/mesh/slide-3.jpg" />
+                </div>
+                <div class="container pos-vertical-top">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-4" style="margin-right: 800px;">
+                            <h2>The Topology</h2>
+                            <hr class="short"/>
+                        </div>
+                    </div>
+
+                    <script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
+                    <div id="tree" class="blur"></div>
+
+                    <script>
+                        
+                        var chart = new OrgChart(document.getElementById("tree"), {
+                            template: "polina",
+                            mouseScrool: OrgChart.action.scroll,
+                            orientation: OrgChart.orientation.left,
+                            enableSearch: false,
+                            //mouseScrool: OrgChart.action.none,
+                            nodeBinding: {
+                                field_0: "ID",
+                                field_1: "Temperature",
+                                field_2: "Humidity",
+                                field_3: "Acelerometer",
+                                field_4: "Gyroscope",
+                                field_5: "LED",
+                                field_6: "Rele",
+                                img_0: "img",
+                            },
+                            nodes: [
+                                { id: 1, ID: "Central", Temperature: "35 ºC", Humidity: "86%", Acelerometer: "15", Gyroscope: "43", LED: "red", Rele: "ON", color: "red", img: "img/mesh/StarNetwork.png"},
+                                { id: 2, pid: 1, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 3, pid: 1, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 4, pid: 1, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 5, pid: 2, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 6, pid: 2, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 7, pid: 3, ID: "312312", img: "img/mesh/StarNetwork.png"},
+                                { id: 8, pid: 1, ID: "123123", img: "img/mesh/StarNetwork.png"},
+                                { id: 9, pid: 1, ID: "123123", img: "img/mesh/StarNetwork.png"}
+                            ]
+                        });  
+
+                    </script>
+                    
+                </div>
+                <!--end of container-->
+            </section>
+
+
+            <section class="height-100 imagebg parallax" data-overlay="3" id="nodesList">
+                <div class="background-image-holder">
+                    <img alt="background" src="img/mesh/nexus_lines.jpg" />
+                </div>
+                <div class="container pos-vertical-top">
+                    <div class="row">
+                        <div class="col-md-12 pos-vertical-top">
+                            <div class="tabs-container feature feature-3 boxed boxed--lg boxed--border text-center" data-content-align="left">
+                                <ul class="tabs">
+                                    <li class="active">
+                                        <div class="tab__title">
+                                            <span class="h5">NODE 1</span>
+                                        </div>
+                                        <div class="tab__content text-center" style="font-size: 15px;">
+                                            <div id="temperature" style="margin-bottom: -60px;">
+                                                <p>Temperature:</p>
+                                            </div>
+                                            <div id="humidity"style="margin-bottom: -60px;">
+                                                <p>Humidity:</p>
+                                            </div>
+                                            <div id="acelerometer" style="margin-bottom: -60px;">
+                                                <p>Acelerometer:</p>
+                                            </div>
+                                            <div id="gyroscope" style="margin-bottom: -60px;">
+                                                <p>Gyroscope:</p>
+                                            </div>
+                                            <div id="led" style="margin-bottom: -60px;">
+                                                <p>LED:</p>
+                                            </div>
+                                            <div id="led" class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-7">
+                                                    <p style="margin-bottom: -60px;"><input type="range" min="0" max="255" value="0" class="slider" id="redSlider"></p>
+                                                    <p style="margin-bottom: -60px;"><input type="range" min="0" max="255" value="0" class="slider" id="greenSlider"></p>
+                                                    <p style="margin-bottom: -60px;"><input type="range" min="0" max="255" value="0" class="slider" id="blueSlider"></p>
+                                                    <div class="col-md-3">
+                                                        <p style="margin-bottom: -60px;">Or pick a color: <input type="color" id="pickColor"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2" style="background-color:black" id="colorShow"></div>
+                                            </div>
+                                            <div></div>
+                                            <div id="rele">
+                                                <p style="margin-top: 60px; margin-bottom: -80px;">Rele:</p>
+                                                <div class="input-checkbox input-checkbox--switch" >
+                                                    <button type="button" class="btn btn-dark" id="btnToggle">Rele Turn ON</button>
+                                                </div>
+                                            </div>     
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tab__title">
+                                            <span class="h5">NODE 2</span>
+                                        </div>
+                                        <div class="tab__content">
+                                            Content
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tab__title">
+                                            <span class="h5">NODE3</span>
+                                        </div>
+                                        <div class="tab__content">
+                                            Content
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!--end of tabs container-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+
+
+
+
+
+            <footer class="text-center space--sm footer-5 bg--dark  ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <ul class="social-list list-inline list--hover">
+                                    <li>
+                                        <a href="#">
+                                            <i class="socicon socicon-google icon icon--xs"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="socicon socicon-twitter icon icon--xs"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="socicon socicon-facebook icon icon--xs"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="socicon socicon-instagram icon icon--xs"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="type--fine-print">Made in Córdoba, Argentina</span>
+                                <img alt="Image" class="flag" src="img/flag-3.png" />
+                            </div>
+                            <div>
+                                <span class="type--fine-print">&copy;
+                                    <span class="update-year"></span> Stack Inc.</span>
+                                <a class="type--fine-print" href="#">Privacy Policy</a>
+                                <a class="type--fine-print" href="#">Legal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </footer>
+        </div>
+        <!--<div class="loader"></div>-->
+
+
+
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/flickity.min.js"></script>
+        <script src="js/easypiechart.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/typed.min.js"></script>
+        <script src="js/datepicker.js"></script>
+        <script src="js/isotope.min.js"></script>
+        <script src="js/ytplayer.min.js"></script>
+        <script src="js/lightbox.min.js"></script>
+        <script src="js/granim.min.js"></script>
+        <script src="js/jquery.steps.min.js"></script>
+        <script src="js/countdown.min.js"></script>
+        <script src="js/twitterfetcher.min.js"></script>
+        <script src="js/spectragram.min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <script src="https://www.w3schools.com/lib/w3color.js"></script>
+        <script>
+            var rgb = w3color("rgb(0,0,0)"); //we use the w3color.js library to keep the color as an object
+            window.addEventListener("load", function(){ //when page loads
+            var rSlider = document.getElementById("redSlider");
+            var gSlider = document.getElementById("greenSlider");
+            var bSlider = document.getElementById("blueSlider");
+            var picker = document.getElementById("pickColor");
+
+            rSlider.addEventListener("change", function() { //add event listener for when red slider changes
+                rgb.red = this.value; //update the RED color according to the slider
+                colorShow.style.backgroundColor = rgb.toRgbString(); //update the "Current color"
+            });
+            gSlider.addEventListener("change", function() { //add event listener for when green slider changes
+                rgb.green = this.value; //update the GREEN color according to the slider
+                colorShow.style.backgroundColor = rgb.toRgbString(); //update the "Current color"
+            });
+            bSlider.addEventListener("change", function() { //add event listener for when blue slider changes
+                rgb.blue = this.value;  //update the BLUE color according to the slider
+                colorShow.style.backgroundColor = rgb.toRgbString(); //update the "Current color"
+            });
+            picker.addEventListener("input", function() { //add event listener for when colorpicker changes
+                rgb.red = w3color(this.value).red; //Update the RED color according to the picker
+                rgb.green = w3color(this.value).green; //Update the GREEN color according to the picker
+                rgb.blue = w3color(this.value).blue; //Update the BLUE color according to the picker
+                colorShow.style.backgroundColor = rgb.toRgbString();  //update the "Current color"
+                rSlider.value = rgb.red;  //Update the RED slider position according to the picker
+                gSlider.value = rgb.green;  //Update the GREEN slider position according to the picker
+                bSlider.value = rgb.blue;  //Update the BLUE slider position according to the picker
+            });
+            });
+        </script>
+    </body>
+</html>
